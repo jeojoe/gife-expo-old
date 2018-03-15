@@ -9,5 +9,12 @@
   "parserOptions": {
     "sourceType": "module",
     "ecmaVersion": 2018
+  },
+  "rules": {
+    "import/no-extraneous-dependencies": 0,
+    "no-underscore-dangle": 0,
+    "global-require": 0,
+    "react/jsx-filename-extension": 0,
+    "react/prop-types": 1
   }
 }
