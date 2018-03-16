@@ -11,6 +11,9 @@
     "sourceType": "module",
     "ecmaVersion": 2018
   },
+  "globals": {
+    "__DEV__": true
+  },
   "env": {
     "jest/globals": true
   },
@@ -19,6 +22,8 @@
     "no-underscore-dangle": 0,
     "global-require": 0,
     "react/jsx-filename-extension": 0,
-    "react/prop-types": 1
+    "react/prop-types": 1,
+    "no-use-before-define": 1,
+    "import/prefer-default-export": 1
   }
 }
