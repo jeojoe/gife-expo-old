@@ -5,17 +5,17 @@ import { TabNavigator, TabBarBottom } from 'react-navigation';
 
 import Colors from '../constants/Colors';
 
-import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import { ExploreScreen } from '../modules/Explore';
+import { GifeScreen } from '../modules/Gife';
+import { SettingsScreen } from '../modules/Profile';
 
 export default TabNavigator(
   {
     Home: {
-      screen: HomeScreen,
+      screen: ExploreScreen,
     },
     Links: {
-      screen: LinksScreen,
+      screen: GifeScreen,
     },
     Settings: {
       screen: SettingsScreen,
@@ -54,5 +54,5 @@ export default TabNavigator(
     tabBarPosition: 'bottom',
     animationEnabled: false,
     swipeEnabled: false,
-  }
+  },
 );
