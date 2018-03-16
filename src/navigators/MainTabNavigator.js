@@ -5,9 +5,9 @@ import { TabNavigator, TabBarBottom } from 'react-navigation';
 
 import { ExploreScreen } from 'modules/Explore';
 
-import Colors from '../constants/Colors';
-import { GifeScreen } from '../modules/Gife';
-import { SettingsScreen } from '../modules/Profile';
+import Colors from 'constants/Colors';
+import { GifeScreen } from 'modules/Gife';
+import { SettingsScreen } from 'modules/Profile';
 
 export default TabNavigator(
   {

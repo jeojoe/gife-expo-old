@@ -3,7 +3,10 @@
     "baseUrl": ".",
     "paths": {
       "*": ["src/*"],
-      "modules/*": ["src/modules/*"]
+      "modules/*": ["src/modules/*"],
+      "constants/*": ["src/constants"],
+      "assets/*": ["src/assets/*"],
+      "navigators/*": ["src/navigators/*"]
     }
   }
 }
