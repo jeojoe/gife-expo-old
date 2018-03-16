@@ -3,9 +3,9 @@ import { Platform } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { TabNavigator, TabBarBottom } from 'react-navigation';
 
-import Colors from '../constants/Colors';
+import { ExploreScreen } from 'modules/Explore';
 
-import { ExploreScreen } from '../modules/Explore';
+import Colors from '../constants/Colors';
 import { GifeScreen } from '../modules/Gife';
 import { SettingsScreen } from '../modules/Profile';
 
