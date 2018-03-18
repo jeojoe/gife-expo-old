@@ -4,8 +4,9 @@
     "paths": {
       "*": ["src/*"],
       "modules/*": ["src/modules/*"],
-      "constants/*": ["src/constants/*"],
+      "hoc/*": ["src/hoc/*"],
       "assets/*": ["src/assets/*"],
+      "constants/*": ["src/constants/*"],
       "navigators/*": ["src/navigators/*"]
     }
   }

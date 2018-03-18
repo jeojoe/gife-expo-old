@@ -1,11 +1,13 @@
 import React from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
+import { Provider } from 'react-redux';
 import { AppLoading, Asset, Font } from 'expo';
 import { Ionicons } from '@expo/vector-icons';
 
 import RootNavigation from 'navigators/RootNavigation';
+import configureStore from './src/configureStore';
 
-export default class App extends React.Component {
+class App extends React.Component {
   state = {
     isLoadingComplete: false,
   };
@@ -67,3 +69,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0,0,0,0.2)',
   },
 });
+
+// Redux
+const store = configureStore({});
+export default () => (
+  <Provider store={store}>
+    <App />
+  </Provider>
+);
