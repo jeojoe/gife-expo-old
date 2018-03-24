@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { Colors } from 'app-constants';
+import { Colors } from 'Global/constants';
 
 export default StyleSheet.create({
   wrapper: {

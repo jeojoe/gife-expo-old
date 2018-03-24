@@ -3,11 +3,10 @@ import { Platform } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { TabNavigator, TabBarBottom } from 'react-navigation';
 
-import { ExploreScreen } from 'modules/Explore';
-
-import { Colors } from 'app-constants';
-import { GifeScreen } from 'modules/Gife';
-import { SettingsScreen } from 'modules/Profile';
+import { ExploreScreen } from 'Explore';
+import { GifeScreen } from 'Gife';
+import { SettingsScreen } from 'Profile';
+import { Colors } from 'Global/constants';
 
 export default TabNavigator(
   {

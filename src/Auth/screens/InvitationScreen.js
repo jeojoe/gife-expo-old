@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { TextInput, Image, ImageBackground, Text } from 'react-native';
 
-import { Colors } from 'app-constants';
-import { Button } from 'modules/Global';
-import s from './LoginScreen.style';
+import { Colors } from 'Global/constants';
+import { Button } from 'Global/components';
+import authBg1 from 'Global/assets/images/auth-bg-1.png';
+import authBg2 from 'Global/assets/images/auth-bg-2.png';
+import authBg3 from 'Global/assets/images/auth-bg-3.png';
+import logoWhiteTrans from 'Global/assets/images/logo-white-trans.png';
 
-import authBg1 from '../../../assets/images/auth-bg-1.png';
-import authBg2 from '../../../assets/images/auth-bg-2.png';
-import authBg3 from '../../../assets/images/auth-bg-3.png';
-import logoWhiteTrans from '../../../assets/images/logo-white-trans.png';
+import s from './LoginScreen.style';
 
 const random = Math.random();
 let bg = '';

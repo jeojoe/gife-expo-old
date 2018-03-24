@@ -1,4 +1,4 @@
-import { ActionTypes } from 'app-constants';
+import { ActionTypes } from 'Global/constants';
 
 export const test = (state = false, action) => {
   switch (action.type) {

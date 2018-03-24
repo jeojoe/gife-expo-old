@@ -9,11 +9,11 @@
     ["module-resolver", {
       "root": ["./src"],
       "alias": {
-        "modules": "./src/modules",
-        "hoc": "./src/hoc",
-        "app-constants": "./src/app-constants",
-        "assets": "./src/assets",
-        "navigators": "./src/navigators"
+        "Auth": "./src/Auth",
+        "Explore": "./src/Explore",
+        "Gife": "./src/Gife",
+        "Global": "./src/Global",
+        "Profile": "./src/Profile"
       }
     }]
   ]

@@ -8,8 +8,8 @@ import {
 } from 'react-native';
 import { WebBrowser } from 'expo';
 
-import { MonoText } from 'modules/Global';
-import { withExploreRedux } from 'hoc';
+import { MonoText } from 'Global/components';
+import withExploreRedux from 'Global/hoc/withExploreRedux';
 import styles from '../styles';
 
 class ExploreScreen extends React.Component {
@@ -62,8 +62,8 @@ class ExploreScreen extends React.Component {
             <Image
               source={
                 __DEV__
-                  ? require('../../../assets/images/robot-dev.png')
-                  : require('../../../assets/images/robot-prod.png')
+                  ? require('../../Global/assets/images/robot-dev.png')
+                  : require('../../Global/assets/images/robot-prod.png')
               }
               style={styles.welcomeImage}
             />

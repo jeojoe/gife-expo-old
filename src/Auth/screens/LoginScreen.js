@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { ImageBackground, Modal, Text, StatusBar } from 'react-native';
 
-import withAuthRedux from 'hoc/withAuthRedux';
-import { GlobalPropTypes } from 'app-constants';
+import withAuthRedux from 'Global/hoc/withAuthRedux';
+import { GlobalPropTypes } from 'Global/constants';
+import authBg1 from 'Global/assets/images/auth-bg-1.png';
+import authBg2 from 'Global/assets/images/auth-bg-2.png';
+import authBg3 from 'Global/assets/images/auth-bg-3.png';
+
 import InvitationScreen from './InvitationScreen';
 import s from './LoginScreen.style';
-
-import authBg1 from '../../../assets/images/auth-bg-1.png';
-import authBg2 from '../../../assets/images/auth-bg-2.png';
-import authBg3 from '../../../assets/images/auth-bg-3.png';
 
 const random = Math.random();
 let bg = '';

@@ -1,16 +1,15 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { AuthActions } from '../modules/Auth';
+import { ExploreActions } from 'Explore';
 
-export default function withAuthRedux(Component) {
+export default function withExploreRedux(Component) {
   function mapStateToProps(state) {
     return {
-      isLoggedIn: state.isLoggedIn,
-      invitationCode: state.invitationCode,
+      test: state.test,
     };
   }
   function mapDispatchToProps(dispatch) {
-    return bindActionCreators(AuthActions, dispatch);
+    return bindActionCreators(ExploreActions, dispatch);
   }
   return connect(mapStateToProps, mapDispatchToProps)(Component);
 }

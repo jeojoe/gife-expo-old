@@ -5,10 +5,10 @@ import { Provider } from 'react-redux';
 import { AppLoading, Asset, Font } from 'expo';
 import { Ionicons } from '@expo/vector-icons';
 
-import RootNavigation from 'navigators/RootNavigation';
-import { AuthServices, LoginScreen } from 'modules/Auth';
-import { withAuthRedux } from 'hoc';
-import { GlobalPropTypes } from 'app-constants';
+import { AuthServices, LoginScreen } from 'Auth';
+import { withAuthRedux } from 'Global/hoc';
+import { GlobalPropTypes } from 'Global/constants';
+import RootNavigation from 'Global/navigators/RootNavigation';
 import configureStore from './configureStore';
 
 const propTypes = {
@@ -22,8 +22,8 @@ class App extends React.Component {
 
   async componentWillMount() {
     await Asset.loadAsync([
-      require('./assets/images/robot-dev.png'),
-      require('./assets/images/robot-prod.png'),
+      require('./Global/assets/images/robot-dev.png'),
+      require('./Global/assets/images/robot-prod.png'),
     ]);
 
     await Font.loadAsync({
@@ -31,8 +31,8 @@ class App extends React.Component {
       ...Ionicons.font,
       // We include SpaceMono because we use it in HomeScreen.js. Feel free
       // to remove this if you are not using it in your app
-      brand: require('./assets/fonts/Bangers-Regular.ttf'),
-      'thFancy-regular': require('./assets/fonts/NotoSansThaiUI-Regular.ttf'),
+      brand: require('./Global/assets/fonts/Bangers-Regular.ttf'),
+      'thFancy-regular': require('./Global/assets/fonts/NotoSansThaiUI-Regular.ttf'),
     });
 
     // Dummy : create
