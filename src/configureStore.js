@@ -9,10 +9,12 @@ import logger from 'redux-logger';
 
 // Impore reducers
 import { ExploreReducers } from 'modules/Explore';
+import { AuthReducers } from 'modules/Auth';
 
 const middlewares = [thunk, logger];
 const reducers = combineReducers({
   ...ExploreReducers,
+  ...AuthReducers,
 });
 
 export default (initialState) => {
