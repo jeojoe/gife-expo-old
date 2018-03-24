@@ -49,7 +49,6 @@ class ExploreScreen extends React.Component {
   };
 
   render() {
-    console.log(this.props.test);
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
