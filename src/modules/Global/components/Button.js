@@ -7,7 +7,7 @@ import {
 import { LinearGradient } from 'expo';
 import PropTypes from 'prop-types';
 
-import { Colors } from '../../../constants';
+import { Colors } from 'app-constants';
 import s from './Button.style';
 
 const propTypes = {

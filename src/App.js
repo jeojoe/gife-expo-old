@@ -8,7 +8,7 @@ import { Ionicons } from '@expo/vector-icons';
 import RootNavigation from 'navigators/RootNavigation';
 import { AuthServices, LoginScreen } from 'modules/Auth';
 import { withAuthRedux } from 'hoc';
-import * as GlobalPropTypes from 'constants/GlobalPropTypes';
+import { GlobalPropTypes } from 'app-constants';
 import configureStore from './configureStore';
 
 const propTypes = {

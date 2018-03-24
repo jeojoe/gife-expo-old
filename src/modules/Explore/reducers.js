@@ -1,8 +1,8 @@
-import * as types from 'constants/ActionTypes';
+import { ActionTypes } from 'app-constants';
 
 export const test = (state = false, action) => {
   switch (action.type) {
-    case types.TEST:
+    case ActionTypes.TEST:
       return true;
     default:
       return state;

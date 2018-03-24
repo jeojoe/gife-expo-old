@@ -1,10 +1,10 @@
-import * as types from 'constants/ActionTypes';
+import { ActionTypes } from 'app-constants';
 
 export const test = 'test';
 
 export const isLoggedIn = (state = false, action) => {
   switch (action.type) {
-    case types.SET_IS_LOGGEDIN: {
+    case ActionTypes.SET_IS_LOGGEDIN: {
       return action.isLoggedIn;
     }
     default: {
@@ -15,7 +15,7 @@ export const isLoggedIn = (state = false, action) => {
 
 export const invitationCode = (state = null, action) => {
   switch (action.type) {
-    case types.SET_INVITATION_CODE: {
+    case ActionTypes.SET_INVITATION_CODE: {
       return action.invitationCode;
     }
     default: {

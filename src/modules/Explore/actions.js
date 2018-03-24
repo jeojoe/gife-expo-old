@@ -1,8 +1,8 @@
-import * as types from 'constants/ActionTypes';
+import { ActionTypes } from 'app-constants';
 
 export function testAction() {
   return {
-    type: types.TEST,
+    type: ActionTypes.TEST,
   };
 }
 
