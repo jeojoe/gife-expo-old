@@ -11,7 +11,7 @@
       "alias": {
         "modules": "./src/modules",
         "hoc": "./src/hoc",
-        "app-constants": "./src/constants",
+        "constants": "./src/constants",
         "assets": "./src/assets",
         "navigators": "./src/navigators"
       }
