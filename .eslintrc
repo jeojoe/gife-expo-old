@@ -29,6 +29,7 @@
     "react/jsx-filename-extension": 0,
     "react/prop-types": 1,
     "no-use-before-define": 1,
-    "import/prefer-default-export": 1
+    "import/prefer-default-export": 1,
+    "react/require-default-props": 0
   }
 }
