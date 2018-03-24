@@ -6,7 +6,7 @@ import { AppLoading, Asset, Font } from 'expo';
 import { Ionicons } from '@expo/vector-icons';
 
 import RootNavigation from 'navigators/RootNavigation';
-import { AuthServices } from 'modules/Auth';
+import { AuthServices, LoginScreen } from 'modules/Auth';
 import { withAuthRedux } from 'hoc';
 import * as GlobalPropTypes from 'constants/GlobalPropTypes';
 import configureStore from './configureStore';
@@ -39,8 +39,8 @@ class App extends React.Component {
     await AuthServices.setInvitationCode('lolcode');
     await AuthServices.setToken('token');
 
-    const token = await AuthServices.getToken()
-    const code = await AuthServices.getInvitationCode()
+    const token = await AuthServices.getToken();
+    const code = await AuthServices.getInvitationCode();
     if (code) this.props.setInvitationCode(code);
     if (token) {
       this.props.setIsLoggedIn(true);
@@ -56,13 +56,13 @@ class App extends React.Component {
       return <AppLoading />;
     }
 
-    if (!this.props.invitationCode) return null;
-
     return (
       <View style={s.container}>
-        {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-        {Platform.OS === 'android' && <View style={s.statusBarUnderlay} />}
-        <RootNavigation />
+        {!this.props.isLoggedIn ?
+          <LoginScreen />
+          :
+          <RootNavigation />
+        }
       </View>
     );
   }

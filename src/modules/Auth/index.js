@@ -1,4 +1,4 @@
-import InvitationScreen from './screens/InvitationScreen';
+import LoginScreen from './screens/LoginScreen';
 
 import * as AuthServices from './services';
 import * as AuthActions from './actions';
@@ -6,7 +6,7 @@ import * as AuthReducers from './reducers';
 
 export {
   // Screens
-  InvitationScreen,
+  LoginScreen,
   // Services
   AuthServices,
   // Redux
