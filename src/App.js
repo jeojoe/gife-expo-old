@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { Provider } from 'react-redux';
 import { AppLoading, Asset, Font } from 'expo';
@@ -6,20 +7,26 @@ import { Ionicons } from '@expo/vector-icons';
 
 import RootNavigation from 'navigators/RootNavigation';
 import { AuthServices } from 'modules/Auth';
+import { withAuthRedux } from 'hoc';
+import * as GlobalPropTypes from 'constants/GlobalPropTypes';
 import configureStore from './configureStore';
+
+const propTypes = {
+  ...GlobalPropTypes.AuthRedux,
+};
 
 class App extends React.Component {
   state = {
-    isLoadingComplete: false,
+    isAppReady: false,
   }
 
-  _preparingAppAsync = async () => {
-    const assetPm = Asset.loadAsync([
+  async componentWillMount() {
+    await Asset.loadAsync([
       require('./assets/images/robot-dev.png'),
       require('./assets/images/robot-prod.png'),
     ]);
 
-    const fontPm = Font.loadAsync({
+    await Font.loadAsync({
       // This is the font that we are using for our tab bar
       ...Ionicons.font,
       // We include SpaceMono because we use it in HomeScreen.js. Feel free
@@ -28,37 +35,28 @@ class App extends React.Component {
       'thFancy-regular': require('./assets/fonts/NotoSansThaiUI-Regular.ttf'),
     });
 
-    // const authPm = new Promise((reject, resolve) => {
-    //   AuthServices.getToken()
-    //     .then(token => {
+    // Dummy
+    await AuthServices.setInvitationCode('lolcode');
+    await AuthServices.setToken('token');
 
-    //     });
+    const token = await AuthServices.getToken()
+    const code = await AuthServices.getInvitationCode()
+    if (code) this.props.setInvitationCode(code);
+    if (token) {
+      this.props.setIsLoggedIn(true);
+    } else {
+      this.props.setIsLoggedIn(false);
+    }
 
-    // });
-
-    return Promise.all([assetPm, fontPm]);
+    this.setState({ isAppReady: true });
   }
 
-  _handleLoadingError = (error) => {
-    // In this case, you might want to report the error to your error
-    // reporting service, for example Sentry
-    console.warn(error);
-  };
-
-  _handleFinishLoading = () => {
-    this.setState({ isLoadingComplete: true });
-  };
-
   render() {
-    if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
-      return (
-        <AppLoading
-          startAsync={this._preparingAppAsync}
-          onError={this._handleLoadingError}
-          onFinish={this._handleFinishLoading}
-        />
-      );
+    if (!this.state.isAppReady && !this.props.skipLoadingScreen) {
+      return <AppLoading />;
     }
+
+    if (!this.props.invitationCode) return null;
 
     return (
       <View style={s.container}>
@@ -81,10 +79,14 @@ const s = StyleSheet.create({
   },
 });
 
+App.propTypes = propTypes;
+
 // Redux
+const AppWithAuth = withAuthRedux(App);
+
 const store = configureStore({});
 export default () => (
   <Provider store={store}>
-    <App />
+    <AppWithAuth />
   </Provider>
 );
