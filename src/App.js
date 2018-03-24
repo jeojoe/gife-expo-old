@@ -35,9 +35,12 @@ class App extends React.Component {
       'thFancy-regular': require('./assets/fonts/NotoSansThaiUI-Regular.ttf'),
     });
 
-    // Dummy
-    await AuthServices.setInvitationCode('lolcode');
-    await AuthServices.setToken('token');
+    // Dummy : create
+    // await AuthServices.setInvitationCode('lolcode');
+    // await AuthServices.setToken('token');
+    // Dummy : delete
+    await AuthServices.deleteInvitationCode();
+    await AuthServices.deleteToken();
 
     const token = await AuthServices.getToken();
     const code = await AuthServices.getInvitationCode();
