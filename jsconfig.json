@@ -6,7 +6,7 @@
       "modules/*": ["src/modules/*"],
       "hoc/*": ["src/hoc/*"],
       "assets/*": ["src/assets/*"],
-      "constants/*": ["src/constants/*"],
+      "app-constants/*": ["src/constants/*"],
       "navigators/*": ["src/navigators/*"]
     }
   }
