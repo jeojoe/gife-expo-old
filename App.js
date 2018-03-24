@@ -50,16 +50,16 @@ class App extends React.Component {
     }
 
     return (
-      <View style={styles.container}>
+      <View style={s.container}>
         {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-        {Platform.OS === 'android' && <View style={styles.statusBarUnderlay} />}
+        {Platform.OS === 'android' && <View style={s.statusBarUnderlay} />}
         <RootNavigation />
       </View>
     );
   }
 }
 
-const styles = StyleSheet.create({
+const s = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
