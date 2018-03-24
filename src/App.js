@@ -23,7 +23,8 @@ class App extends React.Component {
         ...Ionicons.font,
         // We include SpaceMono because we use it in HomeScreen.js. Feel free
         // to remove this if you are not using it in your app
-        'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
+        brand: require('./assets/fonts/Bangers-Regular.ttf'),
+        'thFancy-regular': require('./assets/fonts/NotoSansThaiUI-Regular.ttf'),
       }),
     ])
   );
