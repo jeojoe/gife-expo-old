@@ -1,7 +1,7 @@
 import ExploreScreen from './screens/ExploreScreen';
 
-import * as ExploreReducers from './reducers';
-import * as ExploreActions from './actions';
+import * as ExploreReducers from './redux/reducers';
+import * as ExploreActions from './redux/actions';
 
 export {
   ExploreScreen,

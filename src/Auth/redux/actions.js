@@ -1,5 +1,5 @@
 import { ActionTypes } from 'Global/constants';
-import * as Services from './services';
+import * as Services from '../services';
 
 export const lol = 0;
 
