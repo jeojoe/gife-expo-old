@@ -5,29 +5,39 @@ import { AppLoading, Asset, Font } from 'expo';
 import { Ionicons } from '@expo/vector-icons';
 
 import RootNavigation from 'navigators/RootNavigation';
+import { AuthServices } from 'modules/Auth';
 import configureStore from './configureStore';
 
 class App extends React.Component {
   state = {
     isLoadingComplete: false,
-  };
+  }
 
-  _loadResourcesAsync = async () => (
-    Promise.all([
-      Asset.loadAsync([
-        require('./assets/images/robot-dev.png'),
-        require('./assets/images/robot-prod.png'),
-      ]),
-      Font.loadAsync({
-        // This is the font that we are using for our tab bar
-        ...Ionicons.font,
-        // We include SpaceMono because we use it in HomeScreen.js. Feel free
-        // to remove this if you are not using it in your app
-        brand: require('./assets/fonts/Bangers-Regular.ttf'),
-        'thFancy-regular': require('./assets/fonts/NotoSansThaiUI-Regular.ttf'),
-      }),
-    ])
-  );
+  _preparingAppAsync = async () => {
+    const assetPm = Asset.loadAsync([
+      require('./assets/images/robot-dev.png'),
+      require('./assets/images/robot-prod.png'),
+    ]);
+
+    const fontPm = Font.loadAsync({
+      // This is the font that we are using for our tab bar
+      ...Ionicons.font,
+      // We include SpaceMono because we use it in HomeScreen.js. Feel free
+      // to remove this if you are not using it in your app
+      brand: require('./assets/fonts/Bangers-Regular.ttf'),
+      'thFancy-regular': require('./assets/fonts/NotoSansThaiUI-Regular.ttf'),
+    });
+
+    // const authPm = new Promise((reject, resolve) => {
+    //   AuthServices.getToken()
+    //     .then(token => {
+
+    //     });
+
+    // });
+
+    return Promise.all([assetPm, fontPm]);
+  }
 
   _handleLoadingError = (error) => {
     // In this case, you might want to report the error to your error
@@ -43,7 +53,7 @@ class App extends React.Component {
     if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
       return (
         <AppLoading
-          startAsync={this._loadResourcesAsync}
+          startAsync={this._preparingAppAsync}
           onError={this._handleLoadingError}
           onFinish={this._handleFinishLoading}
         />
