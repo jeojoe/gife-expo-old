@@ -15,6 +15,9 @@
     },
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "facebookAppId": "162724047869773",
+    "facebookScheme": "fb162724047869773",
+    "facebookDisplayName": "GIFE Traveling"
   }
 }
