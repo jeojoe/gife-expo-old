@@ -26,12 +26,7 @@ if (random < 0.33) {
   bg = authBg3;
 }
 
-
 class LoginScreen extends Component {
-  state = {
-    lol: 'lol',
-  }
-
   _login = async () => {
     const { type, token: accessToken } = await Facebook.logInWithReadPermissionsAsync(Config.FACEBOOK_APP_ID, {
       permissions: ['public_profile', 'email', 'user_friends'],
