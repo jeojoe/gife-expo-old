@@ -6,3 +6,7 @@ export const AuthRedux = {
   setInvitationCode: PropTypes.func,
   setIsLoggedIn: PropTypes.func,
 };
+
+export const GlobalRedux = {
+  isLoading: PropTypes.bool,
+};
