@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
+import { compose } from 'redux';
 import { TextInput, Image, ImageBackground, Text } from 'react-native';
+import Spinner from 'react-native-loading-spinner-overlay';
 
-import { Colors } from 'Global/constants';
+import { AuthServices } from 'Auth';
+import { Colors, GlobalPropTypes, AlertMessages } from 'Global/constants';
 import { Button } from 'Global/components';
+import withGlobalRedux from 'Global/hoc/withGlobalRedux';
+import withAuthRedux from 'Global/hoc/withAuthRedux';
 import authBg1 from 'Global/assets/images/auth-bg-1.png';
 import authBg2 from 'Global/assets/images/auth-bg-2.png';
 import authBg3 from 'Global/assets/images/auth-bg-3.png';
@@ -23,10 +28,25 @@ if (random < 0.33) {
 class InvitationScreen extends Component {
   state = {
     code: '',
+    isLoading: false,
   }
 
-  _verifyCode = async () => {
-
+  _verifyCode = () => {
+    // Todo: modal bug
+    // this.props.startLoading();
+    this.setState({ isLoading: true });
+    AuthServices.verifyInvitationCode(this.state.code)
+      // Success
+      .then(() => {
+        this.setState({ isLoading: false });
+        this.props.setInvitationCode(this.state.code);
+      })
+      // Error
+      .catch((err) => {
+        this.setState({ isLoading: false });
+        console.warn(err);
+        setTimeout(() => alert(AlertMessages.INVITATION_CODE_REJECTED), 500);
+      });
   }
 
   render() {
@@ -36,6 +56,7 @@ class InvitationScreen extends Component {
         source={bg}
         resizeMode="cover"
       >
+        <Spinner visible={this.state.isLoading} />
         <Image
           source={logoWhiteTrans}
           style={s.logo}
@@ -57,11 +78,16 @@ class InvitationScreen extends Component {
         />
         <Button
           text="Submit"
-          onPress={() => console.log('lol')}
+          onPress={this._verifyCode}
         />
       </ImageBackground>
     );
   }
 }
 
-export default InvitationScreen;
+InvitationScreen.propTypes = GlobalPropTypes.GlobalRedux;
+
+export default compose(
+  withGlobalRedux,
+  withAuthRedux,
+)(InvitationScreen);

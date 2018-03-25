@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { Provider } from 'react-redux';
 import { AppLoading, Asset, Font } from 'expo';
@@ -8,18 +7,16 @@ import { Ionicons } from '@expo/vector-icons';
 import { AuthServices, LoginScreen } from 'Auth';
 import { withAuthRedux } from 'Global/hoc';
 import { GlobalPropTypes } from 'Global/constants';
+import { SpinnerOverlay } from 'Global/components';
 import RootNavigation from 'Global/navigators/RootNavigation';
 import configureStore from './configureStore';
-
-const propTypes = {
-  ...GlobalPropTypes.AuthRedux,
-};
 
 class App extends React.Component {
   state = {
     isAppReady: false,
   }
 
+  // Preparing app
   async componentWillMount() {
     await Asset.loadAsync([
       require('./Global/assets/images/robot-dev.png'),
@@ -39,11 +36,12 @@ class App extends React.Component {
     // await AuthServices.setInvitationCode('lolcode');
     // await AuthServices.setToken('token');
     // Dummy : delete
-    await AuthServices.deleteInvitationCode();
-    await AuthServices.deleteToken();
+    // await AuthServices.deleteInvitationCode();
+    // await AuthServices.deleteToken();
 
     const token = await AuthServices.getToken();
     const code = await AuthServices.getInvitationCode();
+    console.log(token, code);
     if (code) this.props.setInvitationCode(code);
     if (token) {
       this.props.setIsLoggedIn(true);
@@ -61,6 +59,8 @@ class App extends React.Component {
 
     return (
       <View style={s.container}>
+        <SpinnerOverlay />
+
         {!this.props.isLoggedIn ?
           <LoginScreen />
           :
@@ -82,7 +82,7 @@ const s = StyleSheet.create({
   },
 });
 
-App.propTypes = propTypes;
+App.propTypes = GlobalPropTypes.AuthRedux;
 
 // Redux
 const AppWithAuth = withAuthRedux(App);
