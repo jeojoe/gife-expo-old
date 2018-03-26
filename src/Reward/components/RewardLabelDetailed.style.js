@@ -1,5 +1,5 @@
 import { StyleSheet, Dimensions } from 'react-native';
-import { sConst } from '../../_constants';
+import { sg } from 'Global/constants';
 
 const { width } = Dimensions.get('window');
 
@@ -16,7 +16,7 @@ export default StyleSheet.create({
     marginBottom: 10,
   },
   headerText: {
-    fontFamily: sConst.FontThHeader,
+    fontFamily: 'th-fancy-regular',
     fontSize: 16,
     flex: 0,
   },
@@ -33,14 +33,14 @@ export default StyleSheet.create({
     marginBottom: 10,
   },
   sponsorHeader: {
-    fontFamily: sConst.FontThHeader,
+    fontFamily: 'th-fancy-regular',
     color: '#fff',
     fontWeight: '500',
     marginBottom: 7,
     textAlign: 'center',
   },
   sponsorImage: {
-    height: (width - 40) * sConst.sponsorImageRatio,
+    height: (width - 40) * sg.sponsorImageRatio,
     borderRadius: 5,
     overflow: 'hidden',
     marginBottom: 10,
