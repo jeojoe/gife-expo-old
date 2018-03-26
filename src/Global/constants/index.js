@@ -13,5 +13,5 @@ export {
   GlobalPropTypes,
   Config,
   AlertMessages,
-  sg
+  sg,
 };
