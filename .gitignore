@@ -2,3 +2,4 @@ node_modules/**/*
 .expo/**/*
 src/Global/constants/config.js
 app.json
+yarn-error.log
