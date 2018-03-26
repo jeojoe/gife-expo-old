@@ -3,22 +3,24 @@ import React from 'react';
 import { StackNavigator } from 'react-navigation';
 
 import MainTabNavigator from './MainTabNavigator';
+import { ChallengeScreen } from 'Challenge';
+
 import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync';
 
-const RootStackNavigator = StackNavigator(
-  {
-    Main: {
-      screen: MainTabNavigator,
+const RootStackNavigator = StackNavigator({
+  Main: {
+    screen: MainTabNavigator,
+  },
+  Challenge: {
+    screen: ChallengeScreen,
+  }
+}, {
+  navigationOptions: () => ({
+    headerTitleStyle: {
+      fontWeight: 'normal',
     },
-  },
-  {
-    navigationOptions: () => ({
-      headerTitleStyle: {
-        fontWeight: 'normal',
-      },
-    }),
-  },
-);
+  }),
+});
 
 export default class RootNavigator extends React.Component {
   componentDidMount() {
