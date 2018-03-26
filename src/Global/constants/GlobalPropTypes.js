@@ -10,3 +10,15 @@ export const AuthRedux = {
 export const GlobalRedux = {
   isLoading: PropTypes.bool,
 };
+
+export const Challenge = {
+  title: PropTypes.string.isRequired,
+  picture: PropTypes.string.isRequired,
+  endDate: PropTypes.string.isRequired,
+  locationLabel: PropTypes.string.isRequired,
+  rating: PropTypes.number.isRequired,
+  disabled: PropTypes.bool,
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+};
