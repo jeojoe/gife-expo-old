@@ -1,45 +1,69 @@
-import React from 'react';
-import { StatusBar, Text } from 'react-native';
-import { FontAwesome } from '@expo/vector-icons';
+import React, { Component } from 'react';
+// import PropTypes from 'prop-types';
 import { SafeAreaView } from 'react-navigation';
+import { View, Text, ScrollView } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
-import { MonoText } from 'Global/components';
-import withExploreRedux from 'Global/hoc/withExploreRedux';
-import { Colors, sg } from 'Global/constants';
+import { ChallengeSection } from 'Challenge';
+import { GifeStatusBar } from 'Global/components';
+import { sg, Colors } from 'Global/constants';
 // dummy
 import { getSections } from 'Global/dummyData';
-
+import SpotlightCarousel from '../components/SpotlightCarousel';
 import s from './ExploreTabScreen.style';
 
-class ExploreTabScreen extends React.Component {
+export default class ExploreTabScreen extends Component {
+  // static propTypes = {
+  //   navigation: PropTypes.objectOf({
+  //     navigate: PropTypes.func.isRequired,
+  //   }).isRequired,
+  // }
+
   static navigationOptions = {
     header: null,
     tabBarIcon: ({ focused }) => (
-      <FontAwesome
+      <Icon
         name="search"
         color={focused ? Colors.main : Colors.textGreyLighter}
         size={25}
       />
     ),
-  };
-
-  _renderSection = () => {
-    return getSections().map(section => (
-      <Text>lol</Text>
-    ));
   }
+
+  _renderSections = () => (
+    getSections().map(section => (
+      <ChallengeSection
+        key={section.id}
+        title={section.title}
+        paddingHorizontal={20}
+        spaceBetweenPercent="2.5%"
+        challenges={section.challenges}
+      />
+    ))
+  )
 
   render() {
     return (
-      <SafeAreaView style={s.container}>
-        <StatusBar
-          barStyle="dark-content"
-        />
-        {/* Sections */}
-        {this._renderSection()}
+      <SafeAreaView style={[sg.wrapper, s.wrapper]}>
+        <GifeStatusBar grey />
+        <ScrollView>
+          {/* space <==> */}
+          <View style={{ height: 20 }} />
+
+          {/* Spotlight */}
+          <Text style={[sg.header]}>
+            <Text style={sg.headerFront}>
+              ภารกิจ
+            </Text>
+            {' '}
+            <Text>โดดเด่นและแนะนำ</Text>
+          </Text>
+          <SpotlightCarousel />
+
+          {/* Sections */}
+          {this._renderSections()}
+        </ScrollView>
       </SafeAreaView>
     );
   }
 }
-
-export default withExploreRedux(ExploreTabScreen);
