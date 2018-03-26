@@ -31,6 +31,7 @@ class App extends React.Component {
       // to remove this if you are not using it in your app
       brand: require('./Global/assets/fonts/Bangers-Regular.ttf'),
       'th-fancy-regular': require('./Global/assets/fonts/NotoSansThaiUI-Regular.ttf'),
+      'th-fancy-mediun': require('./Global/assets/fonts/NotoSansThaiUI-Medium.ttf'),
     });
 
     // Dummy : create
