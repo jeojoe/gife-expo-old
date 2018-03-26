@@ -4,6 +4,7 @@ import SpinnerOverlay from './SpinnerOverlay';
 import LocationLabel from './LocationLabel';
 import Logo from './Logo';
 import StarRating from './StarRating';
+import TimeLeftLabel from './TimeLeftLabel';
 
 export {
   MonoText,
@@ -12,4 +13,5 @@ export {
   LocationLabel,
   Logo,
   StarRating,
+  TimeLeftLabel,
 };
