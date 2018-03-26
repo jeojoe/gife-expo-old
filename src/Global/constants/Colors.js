@@ -22,6 +22,8 @@ export default {
   bgGrey: '#F9F9F9',
   bgMainLightTop: '#FFF5FA',
   bgMainLightBottom: '#FFEBF4',
+  bgTopBarLeft: '#FF006F',
+  bgTopBarRight: '#C50950',
   border: '#979797',
   mainGradientTopLeft: 'rgba(252, 11, 105, 0.85)',
   mainGradientBottomRight: 'rgba(203, 17, 80, 1)',

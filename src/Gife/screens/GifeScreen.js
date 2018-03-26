@@ -1,27 +1,78 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
-import { ExpoLinksView } from '@expo/samples';
+import { Text, ScrollView, StyleSheet, View, TouchableOpacity } from 'react-native';
+import { LinearGradient } from 'expo';
+
+import { Logo } from 'Global/components';
+import { Colors } from 'Global/constants';
+import DoChallengeTab from '../components/DoChallengeTab';
+import PendingReviewTab from '../components/PendingReviewTab';
+import s from './GifeScreen.style';
 
 export default class LinksScreen extends React.Component {
   static navigationOptions = {
-    title: 'Links',
+    header: null,
+    title: 'ทำภารกิจ!',
+    tabBarIcon: ({ focused }) => (
+      <Logo
+        type={focused ? 'normal' : 'grey'}
+        // name="search"
+        // color={focused ? Colors.main : Colors.textGreyLighter}
+        size={25}
+      />
+    ),
   };
+
+  state = {
+    activeTab: 'do-challenge',
+  }
+
+  _changeTab = activeTab => this.setState({ activeTab })
 
   render() {
     return (
-      <ScrollView style={styles.container}>
-        {/* Go ahead and delete ExpoLinksView and replace it with your
-           * content, we just wanted to provide you with some helpful links */}
-        <ExpoLinksView />
-      </ScrollView>
+      <LinearGradient
+        colors={[Colors.bgMainLightTop, Colors.bgMainLightBottom]}
+        start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}
+        style={s.wrapper}
+      >
+        <LinearGradient
+          colors={[Colors.bgTopBarLeft, Colors.bgTopBarRight]}
+          style={s.topBar}
+          start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}
+        >
+          <TouchableOpacity
+            style={s.topBarButton}
+            onPress={() => this._changeTab('do-challenge')}
+          >
+            <Text
+              style={[
+                s.topBarText,
+                this.state.activeTab === 'do-challenge' && s.topBarTextActive,
+              ]}
+            >
+              ทำภารกิจ
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={s.topBarButton}
+            onPress={() => this._changeTab('pending-review')}
+          >
+            <Text
+              style={[
+                s.topBarText,
+                this.state.activeTab === 'pending-review' && s.topBarTextActive,
+              ]}
+            >
+              รอรีวิวอยู่
+            </Text>
+          </TouchableOpacity>
+        </LinearGradient>
+        {this.state.activeTab === 'do-challenge' ?
+          <DoChallengeTab />
+          :
+          <PendingReviewTab />
+        }
+      </LinearGradient>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 15,
-    backgroundColor: '#fff',
-  },
-});
