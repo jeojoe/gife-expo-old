@@ -3,6 +3,7 @@ import { TabNavigator, TabBarBottom } from 'react-navigation';
 import { ExploreTabScreen } from 'Explore';
 import { GifeScreen } from 'Gife';
 import { SettingsScreen } from 'Profile';
+import { Colors } from 'Global/constants';
 
 export default TabNavigator(
   {
@@ -21,15 +22,14 @@ export default TabNavigator(
   },
   {
     tabBarOptions: {
-      showLabel: false,
+      showLabel: true,
       showIcon: true,
+      activeTintColor: Colors.main,
       style: {
         borderTopWidth: 0,
         backgroundColor: '#fff',
       },
-      tabStyle: {
-        paddingBottom: 25,
-      }
+      allowFontScaling: true,
     },
     tabBarComponent: TabBarBottom,
     tabBarPosition: 'bottom',

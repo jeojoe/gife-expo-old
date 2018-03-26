@@ -32,7 +32,7 @@ const DoChallengeModal = props => (
     >
       <ScrollView style={{ flex: 1 }} contentContainerStyle={s.wrapper}>
         <Text style={s.header}>LET&apos;S GIFE !</Text>
-        <Text style={s.subHeader}>เริ่มทำภารกิจนี้ได้ที่หน้า ทำภารกิจ!</Text>
+        <Text style={s.subHeader}>เริ่มทำภารกิจนี้ได้ที่แท็บ ทำภารกิจ!</Text>
         <View style={{ marginBottom: 20 }}>
           <ChallengeCardJumbo
             title={props.title}
