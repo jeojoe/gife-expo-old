@@ -9,7 +9,8 @@
       "Global/*": ["src/Global/*"],
       "Profile/*": ["src/Profile/*"],
       "Challenge/*": ["src/Challenge/*"],
-      "Reward/*": ["src/Reward/*"]
+      "Reward/*": ["src/Reward/*"],
+      "Place/*": ["src/Place/*"]
     }
   }
 }
