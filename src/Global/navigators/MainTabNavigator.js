@@ -9,10 +9,13 @@ export default TabNavigator(
     Home: {
       screen: ExploreTabScreen,
     },
-    Links: {
+    Gife: {
       screen: GifeScreen,
     },
-    Settings: {
+    Reward: {
+      screen: SettingsScreen,
+    },
+    Profile: {
       screen: SettingsScreen,
     },
   },

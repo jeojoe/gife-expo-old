@@ -8,7 +8,7 @@ import { ChallengeScreen } from 'Challenge';
 import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync';
 
 const RootStackNavigator = StackNavigator({
-  Main: {
+  MainTab: {
     screen: MainTabNavigator,
   },
   Challenge: {
