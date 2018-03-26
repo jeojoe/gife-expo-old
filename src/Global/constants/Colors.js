@@ -20,6 +20,8 @@ export default {
 
   // bg & border
   bgGrey: '#F9F9F9',
+  bgMainLightTop: '#FFF5FA',
+  bgMainLightBottom: '#FFEBF4',
   border: '#979797',
   mainGradientTopLeft: 'rgba(252, 11, 105, 0.85)',
   mainGradientBottomRight: 'rgba(203, 17, 80, 1)',
@@ -36,6 +38,7 @@ export default {
   // text
   textGrey: '#525252',
   textGreyLighter: '#777',
+  textOnPinkInactive: '#FFA4C6',
 
   // label
   rating: '#FFD12E',
