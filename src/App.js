@@ -2,7 +2,7 @@ import React from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { Provider } from 'react-redux';
 import { AppLoading, Asset, Font } from 'expo';
-import { FontAwesome } from '@expo/vector-icons';
+import { FontAwesome, MaterialIcons } from '@expo/vector-icons';
 
 import { AuthServices, LoginScreen } from 'Auth';
 import { withAuthRedux } from 'Global/hoc';
@@ -26,6 +26,7 @@ class App extends React.Component {
     await Font.loadAsync({
       // This is the font that we are using for our tab bar
       ...FontAwesome.font,
+      ...MaterialIcons.font,
       // We include SpaceMono because we use it in HomeScreen.js. Feel free
       // to remove this if you are not using it in your app
       brand: require('./Global/assets/fonts/Bangers-Regular.ttf'),
