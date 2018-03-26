@@ -36,6 +36,8 @@ export default {
   buttonLeft: '#FF006F',
   buttonRight: '#C50950',
   buttonShadowOnPink: 'rgba(127,0,51,0.5)',
+  placeActionButtonLeft: '#E30560',
+  placeActionButtonRight: '#F30C99',
 
   // text
   textGrey: '#525252',

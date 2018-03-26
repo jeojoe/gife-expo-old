@@ -11,4 +11,12 @@ export default StyleSheet.create({
     color: '#5F5F5F',
     fontSize: 12,
   },
+  placesRowWrapper: {
+    flex: 1,
+    flexDirection: 'row',
+    paddingHorizontal: 15,
+  },
+  placeWrapper: {
+    marginRight: 15,
+  },
 });

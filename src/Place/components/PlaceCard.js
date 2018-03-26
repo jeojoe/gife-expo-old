@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import { withNavigation } from 'react-navigation';
 import { View, Text, ImageBackground, TouchableOpacity } from 'react-native';
 import { LinearGradient } from 'expo';
+import { MaterialIcons } from '@expo/vector-icons';
 
 import { LocationLabel, StarRating } from 'Global/components';
+import { Colors } from 'Global/constants';
 import s from './PlaceCard.style';
 
 const propTypes = {
@@ -35,6 +37,29 @@ class PlaceCard extends Component {
     console.log('press checkin');
   }
 
+  _renderButton = type => (
+    <TouchableOpacity
+      onPress={() => {
+        if (type === 'checkin') this._pressCheckIn();
+        else this._pressQr();
+      }}
+      style={s.actionButtonWrapper}
+    >
+      <LinearGradient
+        colors={[Colors.placeActionButtonLeft, Colors.placeActionButtonRight]}
+        start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }}
+        style={s.actionButton}
+      >
+        <MaterialIcons
+          name="location-on"
+          size={24}
+          color="#fff"
+        />
+        <Text style={s.actionButtonText}>เช็คอินตำแหน่ง</Text>
+      </LinearGradient>
+    </TouchableOpacity>
+  )
+
   render() {
     return (
       <TouchableOpacity
@@ -46,6 +71,9 @@ class PlaceCard extends Component {
           source={{ uri: this.props.bannerImageUrl }}
           style={s.imageBg}
         >
+          {this.props.hasButton &&
+            this._renderButton(this.props.buttonType)
+          }
           <LinearGradient
             colors={['transparent', '#000']}
             start={{ x: 0.5, y: 0 }} end={{ x: 0.5, y: 1 }}

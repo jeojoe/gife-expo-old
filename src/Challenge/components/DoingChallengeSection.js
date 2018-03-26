@@ -1,13 +1,32 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
 import { MaterialIcons, FontAwesome } from '@expo/vector-icons';
 
 import { Colors, sg } from 'Global/constants';
+import { getAllPlaces } from 'Global/dummyData';
+import { PlaceCard } from 'Place';
 import s from './DoingChallengeSection.style';
 
 class DoingChallengeSection extends Component {
   state = {
     lol: 'lol'
+  }
+
+  _renderPlaces = () => {
+    const place = getAllPlaces[0];
+    return [1,2,3].map(key => (
+      <View style={s.placeWrapper}>
+        <PlaceCard
+          key={key}
+          title={place.place_name}
+          locationLabel={place.place_district_name}
+          rating={place.place_total_rating}
+          bannerImageUrl={place.place_picture}
+          hasButton
+          buttonType="checkin"
+        />
+      </View>
+    ));
   }
 
   render() {
@@ -32,7 +51,14 @@ class DoingChallengeSection extends Component {
             <Text style={s.textDetail}>{' '}สิทธิลุ้นรับ iPhone 7s Plus !</Text>
           </View>
         </View>
-        <Text>content</Text>
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+        >
+          <View style={s.placesRowWrapper}>
+            {this._renderPlaces()}
+          </View>
+        </ScrollView>
       </View>
     );
   }

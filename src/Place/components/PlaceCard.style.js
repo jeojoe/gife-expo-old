@@ -7,7 +7,7 @@ export default StyleSheet.create({
   // Fill outer wrapper
   wrapper: {
     width: width * 0.5,
-    height: 120,
+    height: 130,
     borderRadius: 5,
     overflow: 'hidden',
   },
@@ -51,4 +51,22 @@ export default StyleSheet.create({
     alignItems: 'flex-start',
     justifyContent: 'space-between',
   },
+  actionButtonWrapper: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: 40,
+  },
+  actionButton: {
+    flex: 1,
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    flexDirection: 'row',
+  },
+  actionButtonText: {
+    fontFamily: 'th-fancy-medium',
+    fontSize: 15,
+    color: '#fff',
+  }
 });
