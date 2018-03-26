@@ -5,6 +5,7 @@ import LocationLabel from './LocationLabel';
 import Logo from './Logo';
 import StarRating from './StarRating';
 import TimeLeftLabel from './TimeLeftLabel';
+import GifeStatusBar from './GifeStatusBar';
 
 export {
   MonoText,
@@ -14,4 +15,5 @@ export {
   Logo,
   StarRating,
   TimeLeftLabel,
+  GifeStatusBar,
 };
