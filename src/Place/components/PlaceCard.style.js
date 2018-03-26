@@ -63,6 +63,7 @@ export default StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center',
     flexDirection: 'row',
+    paddingRight: '10%',
   },
   actionButtonText: {
     fontFamily: 'th-fancy-medium',
