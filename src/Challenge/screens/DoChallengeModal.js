@@ -1,11 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { compose } from 'redux';
+import { withNavigation } from 'react-navigation';
 import { View, Text, Modal, ScrollView } from 'react-native';
 import { LinearGradient } from 'expo';
 // WTF BUG!!
 import withChallengeRedux from 'Global/hoc/withChallengeRedux';
 import { Colors, GlobalPropTypes } from 'Global/constants';
 import { Button } from 'Global/components';
+import resetNavigation from 'Global/libs/resetNavigation';
 import ChallengeCardJumbo from '../components/ChallengeCardJumbo';
 
 import s from './DoChallengeModal.style';
@@ -29,7 +32,7 @@ const DoChallengeModal = props => (
     >
       <ScrollView style={{ flex: 1 }} contentContainerStyle={s.wrapper}>
         <Text style={s.header}>LET&apos;S GIFE !</Text>
-        <Text style={s.subHeader}>ไปทำภารกิจนี้กัน!</Text>
+        <Text style={s.subHeader}>เริ่มทำภารกิจนี้ได้ที่หน้า ทำภารกิจ!</Text>
         <View style={{ marginBottom: 20 }}>
           <ChallengeCardJumbo
             title={props.title}
@@ -41,14 +44,15 @@ const DoChallengeModal = props => (
           />
         </View>
         <Button
-          text="ไปหน้าทำภารกิจ"
-          bgColor="white"
-          style={{ marginBottom: 10 }}
-        />
-        <Button
           text="เลือกภารกิจอื่นต่อ"
           bgColor="pink"
           style={{ marginBottom: 10, borderColor: '#fff', borderWidth: 1 }}
+          onPress={() => {
+            props.setDoChallengeModalVisible(false);
+            setTimeout(() => {
+              resetNavigation(props.navigation);
+            }, 500);
+          }}
         />
       </ScrollView>
     </LinearGradient>
@@ -57,4 +61,8 @@ const DoChallengeModal = props => (
 
 DoChallengeModal.propTypes = propTypes;
 
-export default withChallengeRedux(DoChallengeModal);
+
+export default compose(
+  withChallengeRedux,
+  withNavigation,
+)(DoChallengeModal);
