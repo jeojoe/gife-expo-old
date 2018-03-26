@@ -49,19 +49,21 @@ class PlaceCard extends Component {
           <LinearGradient
             colors={['transparent', '#000']}
             start={{ x: 0.5, y: 0 }} end={{ x: 0.5, y: 1 }}
-            style={s.headerGradientWrapper}
+            style={this.props.jumbo ? s.headerGradientWrapperJumbo : s.headerGradientWrapper}
           >
             {/* Title */}
-            <Text style={s.title} numberOfLines={3}>
+            <Text style={this.props.jumbo ? s.titleJumbo : s.title} numberOfLines={3}>
               {this.props.title}
             </Text>
             {/* Footer */}
             <View style={s.footerWrapper}>
               <LocationLabel
                 label={this.props.locationLabel}
+                size={10}
               />
               <StarRating
                 rating={this.props.rating}
+                size={10}
               />
             </View>
           </LinearGradient>
