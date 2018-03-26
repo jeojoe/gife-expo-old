@@ -8,6 +8,7 @@
       "Gife/*": ["src/Gife/*"],
       "Global/*": ["src/Global/*"],
       "Profile/*": ["src/Profile/*"],
+      "Challenge/*": ["src/Challenge/*"]
     }
   }
 }

@@ -11,12 +11,14 @@ import logger from 'redux-logger';
 import * as GlobalReducers from 'Global/redux/reducers';
 import { ExploreReducers } from 'Explore';
 import { AuthReducers } from 'Auth';
+import { ChallengeReducers } from 'Challenge';
 
 const middlewares = [thunk, logger];
 const reducers = combineReducers({
   ...GlobalReducers,
   ...ExploreReducers,
   ...AuthReducers,
+  ...ChallengeReducers,
 });
 
 export default (initialState) => {

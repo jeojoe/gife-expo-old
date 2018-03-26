@@ -13,7 +13,8 @@
         "Explore": "./src/Explore",
         "Gife": "./src/Gife",
         "Global": "./src/Global",
-        "Profile": "./src/Profile"
+        "Profile": "./src/Profile",
+        "Challenge": "./src/Challenge"
       }
     }]
   ]
