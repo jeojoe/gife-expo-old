@@ -16,6 +16,6 @@ export default StyleSheet.create({
   text: {
     fontWeight: 'bold',
     fontSize: 22,
-    fontFamily: 'thFancy-regular',
+    fontFamily: 'th-fancy-regular',
   },
 });

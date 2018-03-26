@@ -10,7 +10,7 @@ export default StyleSheet.create({
   },
   header: {
     paddingRight: 6,
-    fontFamily: 'Bangers-Regular',
+    fontFamily: 'brand',
     textAlign: 'center',
     color: '#fff',
     fontSize: 56,
