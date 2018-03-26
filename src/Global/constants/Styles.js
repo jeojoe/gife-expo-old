@@ -13,6 +13,12 @@ export default StyleSheet.create({
   horizontalPad: {
     paddingHorizontal: horizontalPad,
   },
+  flexRow: {
+    flexDirection: 'row',
+  },
+  alignCenter: {
+    alignItems: 'center',
+  },
   header: {
     paddingHorizontal: 32,
     fontSize: 24,
